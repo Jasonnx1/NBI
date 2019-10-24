@@ -2,6 +2,9 @@ int previousTime;
 int deltaTime;
 int currentTime;
 
+Map m = new Map();
+Terrain t = new Terrain();
+
 Voronoi voronoi;
 
 void setup()
@@ -10,20 +13,25 @@ void setup()
   currentTime = millis();
   previousTime = millis();
   
-   // set the background color
-   // background(255);
-
+    // set the background color
+    background(255);
+    
+   m.setTerrain(t);
+   m.load();
+   m.generateTerrain();
+   m.display();
    
     // smooth edges
-    smooth();  
+//    smooth();
+    
     // limit the number of frames per second
-    frameRate(60);
-    colorMode(HSB);
+ //   frameRate(60);
+//    colorMode(HSB);
   
   
-    voronoi = new Voronoi();
-    voronoi.generateMap();
-    voronoi.display(); 
+/*  voronoi = new Voronoi();
+  voronoi.generateMap();
+  voronoi.display(); */
   
 }
 
@@ -55,10 +63,8 @@ void keyPressed()
  
   switch(key)
   {
-    case 'r':     voronoi = new Voronoi();
-                  voronoi.generateMap();
-                  voronoi.display(); 
-    break;
+
+ 
   }
   
 }

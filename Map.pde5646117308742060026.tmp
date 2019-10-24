@@ -6,7 +6,7 @@ public class Map {
   
   Map()
   {   
-    map = new color[640][480];    
+    map = new color[width][height];    
   }
   
   
