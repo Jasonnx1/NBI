@@ -1,0 +1,64 @@
+int previousTime;
+int deltaTime;
+int currentTime;
+float increment = 0.02;
+
+MoistureMap mMap;
+HeightMap hMap;
+
+
+
+void setup()
+{
+  size(640, 480);
+  currentTime = millis();
+  previousTime = millis();
+  
+  mMap = new MoistureMap();  
+  hMap = new HeightMap();
+ 
+  mMap.load();
+  hMap.load();
+  
+  
+}
+
+
+void draw()
+{
+  currentTime = millis();
+  deltaTime = currentTime - previousTime;
+ 
+  update(deltaTime);
+  display();
+  
+  previousTime = currentTime;
+}
+
+void update(int deltatime)
+{
+  
+  
+}
+
+void display() 
+{
+
+}
+
+void keyPressed()
+{
+ 
+  switch(key)
+  {
+    case 'm': mMap.display();
+    break;
+    case 'h': hMap.display();
+    break;
+    
+  }
+  
+}
+
+
+  
