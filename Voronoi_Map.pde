@@ -1,13 +1,14 @@
-import Voronoi.java;
+
 
 public class VoronoiMap
 {
   ArrayList<Dot> dots = new ArrayList<Dot>();
-  int MaxDots = 200;
-  float SeperationForce = 50;
+  int MaxDots = 50;
+  float SeperationForce = 20;
+  float SweepLine = 0;
   
   
-  Voronoi voronoi = new Voronoi();
+
   
   void generateDots()
   {
@@ -28,6 +29,35 @@ public class VoronoiMap
   void generateMap()
   {
     
+    for(int i = 0; i < MaxDots; i++)
+    {
+      
+      for( Dot d : dots )
+      {
+        if(d != dots.get(i))
+        {
+          if(PVector.dist( dots.get(i).pos, d.pos ) < 50 )
+          {
+            fill(255);
+            PVector tempVec = new PVector(0,0);
+            if(dots.get(i).pos.x > d.pos.x)
+            {
+              
+              tempVec.x = (dots.get(i).pos.x + d.pos.x)/2;
+              tempVec.y = (dots.get(i).pos.y + d.pos.y)/2;
+             
+            }
+            
+            ellipse(tempVec.x, tempVec.y, 5,5);
+            
+          }      
+        }
+        
+       
+      }
+     
+    }
+    
     
   }
   
@@ -36,7 +66,7 @@ public class VoronoiMap
    
     for(Dot d : dots)
     {
-      
+      fill(0);
       d.display();
       
     }

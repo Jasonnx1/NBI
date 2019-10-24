@@ -2,12 +2,20 @@ public class Dot
 {
   PVector pos;
 
+  ArrayList<PVector> vertex;
   
   
   
   Dot(float tx, float ty)
   {
     pos = new PVector(tx, ty);
+    vertex = new ArrayList<PVector>();
+    
+    for(int i = 0; i < 3; i++)
+    {
+      vertex.add( new PVector(0,0) );
+    }
+      
 
   }
   
