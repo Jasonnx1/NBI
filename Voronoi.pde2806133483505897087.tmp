@@ -1,10 +1,7 @@
 public class Voronoi
 {
-// Pressing Control-R will render this sketch.
-int i = 0;
-int myw;
-int myh;
-int nVoronoi = 10;
+
+int nVoronoi = 200;
 int[] seeds_x = new int[nVoronoi];
 int[] seeds_y = new int[nVoronoi];
 color[] seed_colors = new color[nVoronoi];
@@ -14,21 +11,18 @@ int minIndex = 0;
 
 Voronoi()
 {
-   myw = width;
-   myh = height;
+
 }
 
 
 void generateMap()
 {
-      for(i=0; i < nVoronoi; i = i+1)
+      for(int i=0; i < nVoronoi; i = i+1)
     {
-        // Keep them not too close to the borders, otherwise it's not fun
-        // TODO: should also check that two or more are not generated in the same spot!
-        seeds_x[i] = int(random(20, myw - 20));
-        seeds_y[i] = int(random(20, myh - 20));
+        seeds_x[i] = int(random(20, width - 20));
+        seeds_y[i] = int(random(20, height - 20));
         
-        seed_colors[i] = color(random(255),random(255), 255);
+        seed_colors[i] = color(0,0,random(255);
       
     }
   
@@ -36,31 +30,31 @@ void generateMap()
 
 void display()
 {
- 
    // For each pixel
-    for(int px = 0; px < myw; px = px +1)
+    for(int px = 0; px < width; px++)
     {
-         for(int py = 0; py < myh; py = py +1)
+         for(int py = 0; py < height; py++)
          {
              // Check distances to colors
              minDistance = ((px  - seeds_x[0]) * (px - seeds_x[0])) +  ((py  - seeds_y[0]) * (py  - seeds_y[0]));
              minIndex = 0;
 
-             for (int nc = 1; nc < nVoronoi; nc = nc+1)
+             for (int nc = 0; nc < nVoronoi; nc++)
              {
                  int dist = ((px  - seeds_x[nc]) * (px - seeds_x[nc])) +  ((py  - seeds_y[nc]) * (py  - seeds_y[nc]));
                  
+                
                  if (dist <= minDistance)
                  {
                      minDistance = dist;
                      minIndex = nc;
                 }
+              
             }
             // Distance has been picked. Color!
-            //set(px, py, seed_colors[minIndex]);
-            //line(0, 7, 85, 75);
-            stroke(seed_colors[minIndex]);
-            point(px, py);
+            set(px, py, seed_colors[minIndex]);
+            
+
         }
     }
   
@@ -68,11 +62,9 @@ void display()
     noStroke();
     fill(0);
   
-    for (int nc = 0; nc < nVoronoi; nc = nc+1)
-     {
-         
-       ellipse(seeds_x[nc], seeds_y[nc], 3, 3);
-       
+    for (int nc = 0; nc < nVoronoi; nc++)
+    {        
+       ellipse(seeds_x[nc], seeds_y[nc], 3, 3);     
     }
   
   

@@ -1,0 +1,33 @@
+public class Node
+{
+  
+  PVector pos;
+  color c;
+  int attribut;
+ 
+  Node()
+  {  
+    pos = new PVector(random(20, width - 20), random(20, height - 20) );   
+     
+  }
+  
+  void generate()
+  {
+   
+    switch(attribut)
+    {
+      case 1:  c = color(#DE6067);
+      break;
+      case 2: c = color(#567D46);
+      break;
+      case 3:  c = color(#9B7653);
+      break;
+      case 4:  c = color(60,random(20, 70),100);  
+      break;
+      default: c = color(0,100,100);
+      
+    }
+    
+  }
+  
+}

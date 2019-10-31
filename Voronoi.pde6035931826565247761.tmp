@@ -7,7 +7,7 @@ ArrayList<Node> nodes;
 int minDistance = 0;
 int minIndex = 0;
 
-float increment = 0.01;
+float increment = 0.4;
 
 Voronoi()
 {
@@ -29,17 +29,16 @@ void generateNoise()
 
 
   
-  for(int i = 0; i < 90; i++)
+  for(int i = 0; i < 360; i++)
   {
     
   xoff += increment;
-  yoff += increment;
   
-  theta += PI/45;
+  theta += PI/180;
   
-  r = noise(xoff, yoff) * 300;
+  r = noise(xoff) * 250;
   
-
+  r = 200;
   
   location.x = r * cos(theta) + width/2;
   

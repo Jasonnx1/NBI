@@ -1,12 +1,13 @@
 public class Map {
   
-  float increment = 0.01;
+
   color[][] map;
   Terrain terrain;
+  float increment = 0.02;
   
   Map()
   {   
-    map = new color[640][480];    
+    map = new color[width][height];    
   }
   
   
@@ -27,7 +28,7 @@ public class Map {
       yoff += increment; // Increment yoff
       
       // Calculate noise and scale by 255
-      float bright = noise(xoff, yoff) * 255;
+      float bright = noise(xoff) * 255;
 
       // Try using this line instead
       //  float bright = random(0,255);
