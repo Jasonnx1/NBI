@@ -22,7 +22,7 @@ public class Node
       break;
       case 3:  c = color(#9B7653); //Stone
       break;
-      case 4:  c = color(60,random(20, 70),100); //Water 
+      case 4:  c = color(60,random(50, 80),100); //Water 
       break;
       default: c = color(0,100,100); //Default Pink
       

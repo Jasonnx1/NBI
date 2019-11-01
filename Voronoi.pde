@@ -1,25 +1,39 @@
-public class Voronoi
+public class VoronoiMap
 {
 
 int nVoronoi = 200;
 ArrayList<Node> nodes;
+
+float[][] points;
+Voronoi myVoronoi;
+MPolygon[] myRegions;
+float[][] myEdges;
+
 
 int minDistance = 0;
 int minIndex = 0;
 
 float increment = 0.01;
 
-Voronoi()
+VoronoiMap()
 {
+  points = new float[nVoronoi][2];
   nodes = new ArrayList<Node>();
+  generateMap();
+  
+  myVoronoi = new Voronoi( points );
+  myRegions = myVoronoi.getRegions();
+  myEdges = myVoronoi.getEdges();
 }
 
 void generateMap()
 {
 
-    for(int i=0; i < 200; i++)
+    for(int i=0; i < nVoronoi; i++)
     {
-        nodes.add( new Node() );     
+        nodes.add( new Node() );    
+        points[i][0] = nodes.get(i).pos.x;
+        points[i][1] = nodes.get(i).pos.y;
     }
   
 }
@@ -105,43 +119,32 @@ void assignAttribut()
   
 }
 
-void display()
+void display(PApplet applet)
 {
     background(0);
+   
    // For each pixel
-    for(int px = 0; px < width; px++)
+   
+   stroke(2);
+   
+    for(int i=0; i<voronoi.myRegions.length; i++)
     {
-         for(int py = 0; py < height; py++)
-         {
-             // Check distances to colors
-             minDistance = ((px  - (int)(nodes.get(0).pos.x) ) * (px - (int)(nodes.get(0).pos.x))) +  ((py  - (int)(nodes.get(0).pos.y)) * (py  - (int)(nodes.get(0).pos.y)));
-             minIndex = 0;
-
-             for (int nc = 0; nc < nVoronoi; nc++)
-             {
-                 int dist = ((px  - (int)(nodes.get(nc).pos.x) ) * (px - (int)(nodes.get(nc).pos.x))) +  ((py  - (int)(nodes.get(nc).pos.y)) * (py  - (int)(nodes.get(nc).pos.y)));
-                 
-                 if (dist <= minDistance)
-                 {
-                     minDistance = dist;
-                     minIndex = nc;
-                }
-              
-            }
-            // Distance has been picked. Color!
-            set(px, py, nodes.get(minIndex).c );
-        }
+      fill(nodes.get(i).c);
+      voronoi.myRegions[i].draw(applet); // draw this shape
     }
-  
+
     
-   /* noStroke();
-    fill(0);
-  
-    for (int nc = 0; nc < nVoronoi; nc++)
-    {        
-       ellipse((int)nodes.get(nc).pos.x, (int)nodes.get(nc).pos.y , 3, 3);     
-    }*/
-  
+  for(int i=0; i<myEdges.length; i++)
+  {
+    float startX = myEdges[i][0];
+    float startY = myEdges[i][1];
+    float endX = myEdges[i][2];
+    float endY = myEdges[i][3];
+    line( startX, startY, endX, endY );
+  }
+
+    
+
   
 }
 

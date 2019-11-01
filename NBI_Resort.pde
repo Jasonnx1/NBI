@@ -1,8 +1,13 @@
+import quickhull3d.*;
+
+import megamu.mesh.*;
+
+
 int previousTime;
 int deltaTime;
 int currentTime;
 
-Voronoi voronoi;
+VoronoiMap voronoi;
 float r = 10;
 float theta = PI;
 float increment = 0.001;
@@ -26,13 +31,13 @@ void setup()
     colorMode(HSB, 100);
   
   
-    voronoi = new Voronoi();
-    voronoi.generateMap();
+    voronoi = new VoronoiMap();
     voronoi.generateNoise();
-    voronoi.display(); 
+    voronoi.display(this); 
     
 
-    
+
+  
   
 }
 
@@ -57,11 +62,6 @@ void update(int deltatime)
   
 
   
-  
-  
-  
-
-  
 }
 
 void display() 
@@ -76,10 +76,8 @@ void keyPressed()
  
   switch(key)
   {
-    case 'r':     voronoi = new Voronoi();
-                  voronoi.generateMap();
-                  voronoi.generateNoise();
-                  voronoi.display(); 
+    case 'r': setup();
+               
     break;
   }
   
