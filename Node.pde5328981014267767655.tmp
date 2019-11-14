@@ -4,7 +4,7 @@ public class Node
   PVector pos;
   color c;
   int attribut;
-  float moisture;
+  int moisture;
  
   Node()
   {  
@@ -18,13 +18,13 @@ public class Node
    
     switch(attribut)
     {
-      case 0:  c = color(13, 100, moisture);  //Sand
+      case 0:  c = color(#C2B280);  //Sand
       break;
-      case 1:  c = color(30, 100, moisture); //Grass
+      case 1:  c = color(#567D46); //Grass
       break; 
       case 2:   c = color(0, 5, 52); //Stone
       break;
-      case 3:  c = color(60,99, moisture); //Water 
+      case 3:  c = color(60,random(50, 80), moisture); //Water 
       break;
       case 4: c = color(#EA2300); // Lava
       break;
