@@ -28,4 +28,11 @@ class Survivor
    
  }
  
+ void shovel(Node n)
+ {
+  
+    n.state = new Sand();
+   
+ }
+ 
 }

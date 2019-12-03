@@ -41,20 +41,20 @@ class Grid
     
   }    
   
- void move(float x, float y, int att)
+ void move(float x, float y, String att)
  {
    
    
-   if(att == 0 || att == 1)
+   if(att == "Sand" || att == "Grass")
    {
-     println("Moving to " + getPos());
-    man.move(x,y); 
+     println("Moving to " + att + " " + getPos());
+     man.move(x,y); 
      
    }
    else
    {
-     
-    println("Cannot go there !"); 
+    
+    println("Cannot go to " + att + "!"); 
      
    }
    

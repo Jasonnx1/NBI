@@ -8,8 +8,6 @@ PVector focal;
 
 ArrayList<Point> perPoints;
 
-
-
 float[][] points;
 Voronoi myVoronoi;
 
@@ -90,10 +88,10 @@ void generateNoise()
     location.x = r * cos(theta) + position.x; 
     location.y = r * sin(theta) + position.y;
   
-    nearestNode( location ).attribut = 0;
+    nearestNode( location ).state = new Sand();
     
     pushMatrix();
-      translate(position.x, position.y);
+    translate(position.x, position.y);
     popMatrix();
   
   }
@@ -127,9 +125,15 @@ void generateNoise()
       n.moisture = nearestPoint(n.pos).moisture;
     if(PVector.dist(n.pos, focal) <= r )
     {
-       if(n.attribut != 0)
+       if(n.state.getName() != "Sand")
        {
-          n.attribut = nearestPoint(n.pos).givenAttribut;
+          switch(nearestPoint(n.pos).givenAttribut)
+          {
+            case 1: n.state = new Grass();
+            break;
+            case 2: n.state = new Stone();
+            break;          
+          }
        }
       
     }

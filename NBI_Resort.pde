@@ -75,6 +75,9 @@ void keyPressed()
     case 'r': setup();
                
     break;
+    case 's': grid.man.shovel( voronoi.nearestNode(grid.man.pos) );
+    voronoi.assignAttribut();
+    break;
   }
   
 }
@@ -82,7 +85,7 @@ void keyPressed()
 void mousePressed()
 {
   
-  grid.move(mouseX, mouseY, voronoi.nearestNode(new PVector(mouseX, mouseY)).attribut );
+  grid.move(mouseX, mouseY, voronoi.nearestNode(new PVector(mouseX, mouseY)).state.getName() );
   
 }
 
