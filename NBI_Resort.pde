@@ -23,7 +23,7 @@ void setup()
   
     voronoi = new VoronoiMap();
     voronoi.generateNoise();
-    voronoi.display(this); 
+    
   
 }
 
@@ -53,8 +53,10 @@ void update(int deltatime)
 void display() 
 {
   
-
   
+  
+  voronoi.display(this); 
+
 }
 
 void keyPressed()

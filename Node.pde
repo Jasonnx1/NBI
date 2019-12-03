@@ -18,13 +18,13 @@ public class Node
    
     switch(attribut)
     {
-      case 0:  c = color(13, 100, moisture);  //Sand
+      case 0:  c = color(12.5, 33, moisture);  //Sand
       break;
-      case 1:  c = color(30, 100, moisture); //Grass
+      case 1:  c = color(27.72, 96, moisture); //Grass
       break; 
       case 2:   c = color(0, 5, 52); //Stone
       break;
-      case 3:  c = color(60,99, moisture); //Water 
+      case 3:  c = color(57.50,80, moisture); //Water 
       break;
       case 4: c = color(#EA2300); // Lava
       break;
