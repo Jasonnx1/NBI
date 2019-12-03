@@ -8,6 +8,8 @@ int currentTime;
 VoronoiMap voronoi;
 float cooldown = 0;
 PVector location = new PVector(0,0);
+Grid grid;
+
 
 void setup()
 {
@@ -21,9 +23,14 @@ void setup()
     frameRate(60);
     colorMode(HSB, 100);
   
+    
     voronoi = new VoronoiMap();
     voronoi.generateNoise();
+    grid = new Grid(50, voronoi.focal);
+    grid.split();
+   
     
+    noStroke();
   
 }
 
@@ -53,9 +60,10 @@ void update(int deltatime)
 void display() 
 {
   
-  
-  
-  voronoi.display(this); 
+   voronoi.display(this);
+   grid.man.display();
+   
+   
 
 }
 
@@ -68,6 +76,13 @@ void keyPressed()
                
     break;
   }
+  
+}
+
+void mousePressed()
+{
+  
+  grid.move(mouseX, mouseY, voronoi.nearestNode(new PVector(mouseX, mouseY)).attribut );
   
 }
 

@@ -213,11 +213,8 @@ void assignAttribut()
 
 void display(PApplet applet)
 {
-    background(0);
-   
-   // For each pixel
-   
-   strokeWeight(5);
+    background(0);  
+    strokeWeight(2);
    
     for(int i=0; i<voronoi.myRegions.length; i++)
     {
