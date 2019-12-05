@@ -47,6 +47,7 @@ class Grid
    
    if(att == "Sand" || att == "Grass")
    {
+        
      println("Moving to " + att + " " + getPos());
      man.move(x,y); 
      
@@ -60,6 +61,17 @@ class Grid
    
     
    
+ }
+ 
+ Cell nearestCell(PVector pos)
+ {
+
+     int w = width/nCells;
+     int h = height/nCells;
+     int x = (int)pos.x/w;
+     int y = (int)pos.y/h;
+  
+     return cells[x][y];
  }
   
   

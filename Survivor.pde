@@ -15,13 +15,15 @@ class Survivor
   void display()
   {
     
-    fill(#FF1A1A);
+    
+    fill(#FF05E2);
     ellipse(pos.x,pos.y  ,  7,7); 
     
   }
  
  void move(float x, float y)
  {
+   
    
    pos.x = x;
    pos.y = y;
